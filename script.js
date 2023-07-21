@@ -1,4 +1,3 @@
-const cardContent = document.querySelector('.card-content');
 const form = document.querySelector('.form');
 const addBookButton = document.querySelector('.add-book');
 const close = document.querySelector('.close');
@@ -14,7 +13,3 @@ close.addEventListener('click', () => {
 // form.style.display = 'none';
 
 let myLibrary = [];
-
-
-
-cardContent.textContent = myLibrary;

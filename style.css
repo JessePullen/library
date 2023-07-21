@@ -7,7 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
 }
 
 h1 {
@@ -16,6 +15,20 @@ h1 {
 
 button {
     cursor: pointer;
+    width: 100px;
+}
+
+.button-text {
+    /* font-size: 50px; */
+    padding: 0px;
+    margin: 0px;
+}
+
+.header {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .add-book {
@@ -26,15 +39,16 @@ button {
 }
 
 /* Pop-up form section */
-h3 {
-    margin: 0px;
-    margin-bottom: 10px;
-}
-
 .close {
     background-color: crimson;
     width: 20px;
     border-radius: 2px;
+}
+
+.submit {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px black solid;
 }
 
 .form {
@@ -43,10 +57,22 @@ h3 {
     padding: 20px;
     border: 2px black solid;
     border-radius: 10px;
-    align-self: center;
-    /* justify-self: center; */
-    /* position: fixed; */
-    /* z-index: 9; */
+    position: fixed;
+    bottom: 50%;
+    z-index: 9;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -25px;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
 }
 
 form {
