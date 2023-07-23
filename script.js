@@ -8,12 +8,20 @@ const addBookButton = document.querySelector('.add-book');
 submit.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const title = document.querySelector('#title');
-    const author = document.querySelector('#author');
-    const pages = document.querySelector('#pages');
-    const read = document.querySelector('#read');
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const read = document.querySelector('#read').checked;
 
-    console.log(title.value, author.value, pages.value, read.value);
+    console.log(title.value, author.value, pages.value, read.checked);
+
+
+    const testBook = new Book(title, author, pages, read);
+
+    console.log('test ', testBook.title);
+
+
+    // Book(title.value, author.value, pages.value, read.value); //????????
 
 })
 
