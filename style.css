@@ -32,7 +32,7 @@ button {
 }
 
 .add-book {
-    background-color: grey;
+    background-color: steelblue;
     padding: 10px;
     border: 2px black solid;
     border-radius: 10px;
@@ -75,24 +75,24 @@ button {
     padding-top: 10px;
 }
 
-form {
-    /* display: flex; */
-    /* flex-direction: column; */
-}
 
-label {
-    
+input {
+    border-radius: 5px;
 }
 
 /* Card section */
 .card {
+    padding: 10px;
     background-color: lightgray;
-    height: 200px;
-    width: 75%;
     border-radius: 10px;
+    width: 250px;
 }
 
 .card-content {
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 25px;
+    gap: 10px;
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min-content, 200px));
+    grid-auto-rows: min-content;
 }
