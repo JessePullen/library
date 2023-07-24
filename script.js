@@ -3,39 +3,32 @@ const close = document.querySelector('.close');
 const submit = document.querySelector('.submit');
 const addBookButton = document.querySelector('.add-book');
 
+let myLibrary = [];
 
-
+// Gets form data and passes to constructor to create book
 submit.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Stops submit button sending form to server
 
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
     const read = document.querySelector('#read').checked;
 
-    console.log(title.value, author.value, pages.value, read.checked);
-
-
     const testBook = new Book(title, author, pages, read);
 
-    console.log('test ', testBook.title);
+    addBookToLibrary(testBook);
+    console.log(myLibrary);
+});
 
-
-    // Book(title.value, author.value, pages.value, read.value); //????????
-
-})
-
-
-
+// Show form pop-up
 addBookButton.addEventListener('click', () => {
     form.style.display = 'block';
 });
 
+// Close form pop-up
 close.addEventListener('click', () => {
     form.style.display = 'none';
-})
-
-// form.style.display = 'none';
+});
 
 // Constructor function for creating books
 function Book(title, author, pages, read) {
@@ -45,9 +38,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary() {
-
-    myLibrary.push();
+// Add book to library
+function addBookToLibrary(newBook) {
+    myLibrary.push(newBook);
 }
-
-let myLibrary = [];
