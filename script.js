@@ -17,6 +17,9 @@ function getFormData() {
 
     addBookToLibrary(newBook);
     console.log(myLibrary);
+
+    addBookCard();
+
 }
 
 // Gets form data and passes to constructor to create book
@@ -46,4 +49,39 @@ function Book(title, author, pages, read) {
 // Add book to library
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
+}
+
+function addBookCard() {
+    // for (let i = 0; i < myLibrary.length; i++) {
+    //     const test = document.createElement('div');
+    //     test.textContent = 'test';
+    //     console.log('test');
+    //     }
+
+
+
+}
+
+// Creates a card element to store book information on the web page
+function createCard() {
+    const cardContent = document.querySelector('.card-content');
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+    const read = document.createElement('button');
+
+    title.textContent = 'title';
+    author.textContent = 'author';
+    pages.textContent = 'pages';
+    read.textContent = 'read';
+
+    cardContent.appendChild(card);
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
+    card.appendChild(read);
 }
