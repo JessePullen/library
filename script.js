@@ -16,7 +16,7 @@ function getFormData() {
     const newBook = new Book(title, author, pages, read);
 
     addBookToLibrary(newBook);
-    displayBookCard();
+    displayLibrary();
 }
 
 // Gets form data and passes to constructor to create book
@@ -49,7 +49,7 @@ function addBookToLibrary(newBook) {
 }
 
 // Creates a card element to store book information on the web page
-function createCard() {
+function createCard(book) {
     const cardContent = document.querySelector('.card-content');
     
     const card = document.createElement('div');
@@ -60,15 +60,14 @@ function createCard() {
     const pages = document.createElement('p');
     const read = document.createElement('button');
     
-    let i = 0;
 
     console.log(myLibrary);
-    title.textContent = `Title: ${myLibrary[i].title}`;
-    author.textContent = `Author: ${myLibrary[i].author}`;
-    pages.textContent = `Pages: ${myLibrary[i].pages}`;
+    title.textContent = `Title: ${myLibrary[book].title}`;
+    author.textContent = `Author: ${myLibrary[book].author}`;
+    pages.textContent = `Pages: ${myLibrary[book].pages}`;
     read.textContent = 'Read';
 
-    if (myLibrary[i].read === true) {
+    if (myLibrary[book].read === true) {
         read.classList.add('read-book');
     } else {
         read.classList.add('not-read-book');
@@ -81,18 +80,9 @@ function createCard() {
     card.appendChild(read);
 }
 
-function displayBookCard() {
-    // for (let i = 0; i < myLibrary.length; i++) {
-    //     const test = document.createElement('div');
-    //     test.textContent = 'test';
-    //     console.log('test');
-    //     }
-
-    createCard();
-}
-
-myLibrary = [];
-function test(){
-    const newBook = new Book('test', author, pages, read)
-    myLibrary.push(newBook);
+// For each book in myLibrary array, create a card
+function displayLibrary() {
+    for (let book in myLibrary) {
+        createCard(book);
+    }
 }
