@@ -96,3 +96,11 @@ input {
     grid-template-columns: repeat(auto-fill, minmax(min-content, 200px));
     grid-auto-rows: min-content;
 }
+
+.read-book {
+    background-color: lawngreen;
+}
+
+.not-read-book {
+    background-color: crimson;
+}

@@ -60,10 +60,19 @@ function createCard() {
     const pages = document.createElement('p');
     const read = document.createElement('button');
     
-    title.textContent = 'title';
-    author.textContent = 'author';
-    pages.textContent = 'pages';
-    read.textContent = 'read';
+    let i = 0;
+
+    console.log(myLibrary);
+    title.textContent = `Title: ${myLibrary[i].title}`;
+    author.textContent = `Author: ${myLibrary[i].author}`;
+    pages.textContent = `Pages: ${myLibrary[i].pages}`;
+    read.textContent = 'Read';
+
+    if (myLibrary[i].read === true) {
+        read.classList.add('read-book');
+    } else {
+        read.classList.add('not-read-book');
+    }
 
     cardContent.appendChild(card);
     card.appendChild(title);
@@ -80,6 +89,10 @@ function displayBookCard() {
     //     }
 
     createCard();
+}
 
-
+myLibrary = [];
+function test(){
+    const newBook = new Book('test', author, pages, read)
+    myLibrary.push(newBook);
 }
