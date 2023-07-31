@@ -3,7 +3,7 @@ const close = document.querySelector('.close');
 const submit = document.querySelector('.submit');
 const addBookButton = document.querySelector('.add-book');
 
-let myLibrary = [{title: 'test1', author: 'test2', pages: 'test3', read: true}];
+let myLibrary = [];
 
 // Gets form data and creates new book
 function getFormData() {
@@ -16,19 +16,13 @@ function getFormData() {
     const newBook = new Book(title, author, pages, read);
 
     addBookToLibrary(newBook);
-}
-
-// Add book to library
-function addBookToLibrary(newBook) {
-    myLibrary.push(newBook);
+    displayLibrary();
 }
 
 // Gets form data and passes to constructor to create book
 submit.addEventListener('click', (e) => {
     e.preventDefault(); // Stops submit button sending form to server
     getFormData();
-    createCard();
-    // displayLibrary();
 });
 
 // Show form pop-up
@@ -49,8 +43,13 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+// Add book to library
+function addBookToLibrary(newBook) {
+    myLibrary.push(newBook);
+}
+
 // Creates a card element to store book information on the web page
-function createCard() {
+function createCard(book) {
     const cardContent = document.querySelector('.card-content');
     
     const card = document.createElement('div');
@@ -60,15 +59,13 @@ function createCard() {
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const read = document.createElement('button');
-
-    let i = myLibrary.length - 1;
-
-    title.textContent = `Title: ${myLibrary[i].title}`;
-    author.textContent = `Author: ${myLibrary[i].author}`;
-    pages.textContent = `Pages: ${myLibrary[i].pages}`;
+    
+    title.textContent = `Title: ${myLibrary[book].title}`;
+    author.textContent = `Author: ${myLibrary[book].author}`;
+    pages.textContent = `Pages: ${myLibrary[book].pages}`;
     read.textContent = 'Read';
 
-    if (myLibrary[i].read === true) {
+    if (myLibrary[book].read === true) {
         read.classList.add('read-book');
     } else {
         read.classList.add('not-read-book');
@@ -79,4 +76,18 @@ function createCard() {
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read);
+}
+
+// Resets cards in card section to not duplicate entries
+function resetCards() {
+    const cardContent = document.querySelector('.card-content');
+    cardContent.textContent = '';
+}
+
+// For each book in myLibrary array, create a card
+function displayLibrary() {
+    resetCards();
+    for (let book in myLibrary) {
+        createCard(book);
+    }
 }
