@@ -59,23 +59,32 @@ function createCard(book) {
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const read = document.createElement('button');
+    const remove = document.createElement('button');
     
     title.textContent = `Title: ${myLibrary[book].title}`;
     author.textContent = `Author: ${myLibrary[book].author}`;
     pages.textContent = `Pages: ${myLibrary[book].pages}`;
     read.textContent = 'Read';
+    remove.textContent = 'Remove';
+    remove.classList.add('remove');
 
     if (myLibrary[book].read === true) {
         read.classList.add('read-book');
     } else {
         read.classList.add('not-read-book');
     }
-
+        
     cardContent.appendChild(card);
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read);
+    card.appendChild(remove);
+
+    remove.addEventListener('click', () => {
+        myLibrary.splice(book);    
+        card.remove();
+    });
 }
 
 // Resets cards in card section to not duplicate entries

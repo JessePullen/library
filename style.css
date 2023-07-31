@@ -104,3 +104,7 @@ input {
 .not-read-book {
     background-color: crimson;
 }
+
+.remove {
+    margin-left: 45px;
+}
