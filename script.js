@@ -15,8 +15,12 @@ function getFormData() {
     // Creates new book using constructor
     const newBook = new Book(title, author, pages, read);
 
-    addBookToLibrary(newBook);
-    displayLibrary();
+    if (title === '' || author === '' || pages == '') {
+        alert('Please complete the form to add a book');
+    } else {
+        addBookToLibrary(newBook);
+        displayLibrary();
+    }
 }
 
 // Gets form data and passes to constructor to create book
