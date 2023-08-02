@@ -89,6 +89,19 @@ function createCard(book) {
         myLibrary.splice(book);    
         card.remove();
     });
+
+    // Changes read status by clicking button on each card
+    read.addEventListener('click', () => {
+        if (myLibrary[book].read === true) {
+            read.classList.remove('read-book');
+            read.classList.add('not-read-book');
+            myLibrary[book].read = false;
+        } else if (myLibrary[book].read === false) {
+            read.classList.remove('not-read-book');
+            read.classList.add('read-book');
+            myLibrary[book].read = true;
+        }
+    });
 }
 
 // Resets cards in card section to not duplicate entries
